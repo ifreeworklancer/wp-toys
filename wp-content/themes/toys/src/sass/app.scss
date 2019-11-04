@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Arsenal:400,700|Open+Sans:400,700&display=swap&subset=cyrillic');
+
+@import "config/variables";
+@import "config/placeholders";
+
+@import "~bootstrap/scss/bootstrap", "~flickity/dist/flickity.min.css";
+
+@import "base/body";
+@import "base/btn";
+@import "base/layout";
+@import "base/page";
+
+@import "modules/menu";
+@import "modules/forms";
+@import "modules/modal";
+@import "modules/slider";
+@import "modules/video";
+@import "modules/maps";
+
+@import "layout/header";
+@import "layout/intro";
+@import "layout/catalog";
+@import "layout/footer";
+
+@import "page/page-contacts";
+@import "page/page-reviews";
+@import "page/page-basket";
+@import "page/page-checkout";
+
+@import "single/single-product";

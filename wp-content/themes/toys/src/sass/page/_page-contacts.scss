@@ -1,0 +1,34 @@
+#page-contacts {
+
+  .contacts-item {
+    margin-bottom: 30px;
+  }
+
+  .contacts-list {
+    margin-bottom: 25px;
+
+    li {
+
+      a {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .social-list {
+
+    li {
+      a {
+        svg {
+          fill: $body-color;
+        }
+
+        &:hover {
+          svg {
+            fill: $primary;
+          }
+        }
+      }
+    }
+  }
+}

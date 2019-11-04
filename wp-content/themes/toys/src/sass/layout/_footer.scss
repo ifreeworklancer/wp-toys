@@ -1,0 +1,13 @@
+#app-footer {
+  padding: 15px 0;
+  background: $secondary;
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    padding: 15px 30px;
+  }
+
+  .footer-copyright {
+    font-size: .875rem;
+    color: $light;
+  }
+}

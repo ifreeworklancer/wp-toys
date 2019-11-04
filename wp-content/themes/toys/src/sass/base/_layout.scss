@@ -1,0 +1,187 @@
+.pagination-list {
+  display: flex;
+  margin: 40px auto 0;
+
+  li {
+
+    a {
+      display: block;
+      margin: 0 3px;
+      padding: 5px 8px;
+      background: rgba(#fff, .6);
+      border: 1px solid rgba($dark, .6);
+      color: $light;
+      transition: .5s;
+      font-weight: bold;
+      border-radius: 3px;
+
+      &:hover {
+        color: $body-color;
+        background: rgba(#fff, 1);
+        border-color: rgba($dark, .8);
+      }
+    }
+
+    &.active {
+
+      a {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+
+  li {
+    margin-right: 15px;
+
+    a {
+
+      svg {
+        fill: $light;
+        transition: .5s;
+      }
+
+      &:hover {
+
+        svg {
+          fill: $primary;
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.contacts-list {
+  li {
+    margin-bottom: 15px;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: $body-color;
+      font-weight: bold;
+      transition: .5s;
+
+      svg {
+        fill: $body-color;
+        margin-right: 10px;
+        transition: .5s;
+      }
+
+      &:hover {
+        color: $secondary;
+
+        svg {
+          fill: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.price {
+
+  &-value {
+    font-size: .875rem;
+
+    span {
+      margin-left: 5px;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.filters-wrapper {
+  padding: 70px 15px 40px;
+
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    padding: 120px 15px 60px;
+  }
+}
+
+.filters {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 3px;
+  box-shadow: 0 15px 60px -25px rgba(50, 51, 55, .25);
+  max-width: 350px;
+  margin: 0 auto;
+
+  li {
+    margin-bottom: 20px;
+
+    div {
+      position: relative;
+      padding-right: 20px;
+      font-weight: bold;
+      font-family: $headings-font-family;
+      color: $body-color;
+      cursor: pointer;
+      transition: .5s;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        font-size: 1.125rem;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) rotate(0);
+        width: 15px;
+        height: 2px;
+        background: $body-color;
+        transition: .5s;
+      }
+
+      &:hover {
+        color: $light;
+
+        &::before {
+          transform: translateY(-50%) rotate(-20deg);
+          background: $light;
+        }
+      }
+    }
+
+    &.active {
+
+      div {
+        color: $light;
+
+        &::before {
+          transform: translateY(-50%) rotate(20deg);
+          background: $light;
+        }
+      }
+    }
+
+    ul {
+      display: none;
+      margin: 10px 0;
+      padding-left: 15px;
+
+      li {
+        margin-bottom: 5px;
+
+        a {
+          color: $body-color;
+          transition: .5s;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

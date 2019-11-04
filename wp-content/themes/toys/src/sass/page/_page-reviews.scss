@@ -1,0 +1,62 @@
+#page-reviews {
+
+  .reviews-slider {
+
+    &-item {
+      width: 100%;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        width: 50%;
+        padding: 0 15px;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        width: 33.333%;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .flickity-page-dots {
+      margin-bottom: -90px;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        margin-bottom: -50px;
+      }
+
+      li {
+        width: 10px;
+        height: 10px;
+        background: $secondary;
+        border-radius: 2px;
+        transition: .5s;
+
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          width: 12px;
+          height: 12px;
+          border-radius: 3px;
+        }
+
+        &.is-selected {
+          transform: rotate(-12deg);
+        }
+      }
+    }
+  }
+
+  .slider-arrow {
+    margin-top: 15px;
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      right: -30px;
+      transform: translateY(-50%);
+      justify-content: space-between;
+      margin-top: 0;
+    }
+  }
+}

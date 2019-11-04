@@ -1,0 +1,154 @@
+#app-header {
+  position: fixed;
+  top: 0;
+  left: auto;
+  padding: 0 15px;
+  width: 100%;
+  background: rgba($body-bg, .4);
+  border-bottom: 1px solid rgba(#fff, .6);
+  transition: .5s;
+  z-index: 100;
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    padding: 0 30px;
+  }
+
+  &.is-scroll {
+    background: rgba($body-bg, 1);
+  }
+
+  &.app-header-secondary {
+    padding: 15px;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding: 15px 30px;
+    }
+  }
+
+  .logo {
+    position: relative;
+    z-index: 110;
+    color: $dark;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: $headings-font-family;
+  }
+
+  .nav {
+
+    &-list {
+      display: flex;
+      margin-right: 40px;
+
+      li {
+        margin-right: 25px;
+      }
+    }
+  }
+
+  .wpm-language-switcher {
+    position: relative;
+    width: auto;
+    margin-right: 25px;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 45px;
+      height: 45px;
+      background: #fff;
+
+      span {
+        color: $body-color;
+        font-size: 1.125rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: .5s;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      ul {
+
+        a {
+          color: $body-color;
+          font-size: 1.125rem;
+        }
+      }
+
+      &.item-language-main > span > span {
+        color: $primary;
+      }
+    }
+  }
+
+  .favorites {
+    margin-right: 25px;
+
+    a {
+
+      svg {
+        fill: $light;
+        transition: .5s;
+      }
+
+      &:hover {
+
+        svg {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  .basket {
+    position: relative;
+    z-index: 110;
+    display: block;
+    background: $secondary;
+    padding: 10px 20px;
+    border-radius: 3px;
+
+    &-counter {
+      text-align: right;
+      font-size: .75rem;
+      color: #fff;
+    }
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5px;
+
+      svg {
+        fill: $primary;
+      }
+    }
+
+    &-value {
+      text-align: center;
+      color: $light;
+    }
+  }
+}
+
+.nav-list {
+
+  li {
+
+    a {
+      color: $body-color;
+      font-size: 1.125rem;
+      font-weight: bold;
+      font-family: $headings-font-family;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

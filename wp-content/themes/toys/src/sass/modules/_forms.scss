@@ -1,0 +1,156 @@
+form {
+
+  .title {
+    font-size: 1.125rem;
+    font-family: $headings-font-family;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+}
+
+.form-group {
+  position: relative;
+  transition: .5s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    border-radius: 2px;
+    background: $primary;
+    opacity: .7;
+    transition: .5s;
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    bottom: 30%;
+    margin-bottom: 0;
+    font-size: .875rem;
+    color: $body-color;
+    transition: .5s;
+    z-index: 5;
+  }
+
+  .form-control {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    color: $body-color;
+    font-size: 1rem;
+    height: auto;
+  }
+
+  &.in-focus {
+
+    label {
+      bottom: 100%;
+      color: $secondary;
+      font-size: .75rem;
+    }
+
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: map_get($grid-breakpoints, sm)) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    width: 100%;
+    margin: 0 auto 30px;
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      width: 30%;
+      margin: 0;
+    }
+
+    .btn {
+      height: 100%;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        padding: 0 $btn-padding-x;
+      }
+    }
+  }
+}
+
+.form-column {
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  &--min {
+    max-width: 315px;
+  }
+}
+
+.quantity {
+  position: relative;
+  width: 100%;
+  max-width: 100px;
+  margin-right: 50px;
+
+  .quantity-label {
+    position: relative;
+  }
+
+  .quantity-input {
+    color: $body-color;
+    font-family: $headings-font-family;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .quantity-button {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    font-size: 12px;
+    background: #fff;
+    user-select: none;
+    transition: .5s;
+
+    &.quantity-down {
+      left: 5px;
+    }
+
+    &.quantity-up {
+      right: 5px;
+    }
+
+    &:hover {
+      background: #DADFE1;
+    }
+  }
+}
