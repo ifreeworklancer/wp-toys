@@ -35,6 +35,7 @@ function product_post_type()
         'description' => __('Описание', 'text_domain'),
         'labels' => $labels,
         'supports' => array('title', 'editor', 'thumbnail', 'template', 'custom-fields'),
+        'taxonomies' => array('product_category'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,

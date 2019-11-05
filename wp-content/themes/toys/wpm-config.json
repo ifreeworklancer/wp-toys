@@ -1,4 +1,7 @@
 {
+  "taxonomies": {
+    "product_category": {}
+  },
   "post_types": {
     "product": {}
   }

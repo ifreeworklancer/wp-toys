@@ -93,6 +93,9 @@ function theme_customize_register($wp_customize)
 
 add_action('customize_register', 'theme_customize_register');
 
+//Taxonomy
+require_once('taxonomy/product-category.php');
+
 // Post types
 require_once('post-types/product.php');
 
