@@ -101,4 +101,4 @@
 <?php require_once('includes/partials/modal.php'); ?>
 
 <!-- Main -->
-<main>
+<main id="app">

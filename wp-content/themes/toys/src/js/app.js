@@ -6,6 +6,21 @@ import IMask from 'imask';
 
 window.jQuery = window.$ = jquery;
 
+import Vue from 'vue';
+import store from './store';
+import Products from './components/product/Products';
+
+
+new Vue({
+    el: '#app',
+    components: {
+        Products,
+    },
+    store,
+    created() {
+        this.$store.dispatch('getBasket');
+    }
+});
 
 (function () {
 

@@ -11,31 +11,31 @@
     <div class="custom-modal-body">
         <ul class="contacts-list">
             <li>
-                <a href="tel:<?= phone_link($phone) ?>">
+                <a href="tel:<?= phone_link(get_theme_mod('phone')) ?>">
                     <svg width="15" height="15">
                         <use xlink:href="#phone-icon"></use>
                     </svg>
-                    <?= $phone; ?>
+                    <?= get_theme_mod('phone'); ?>
                 </a>
             </li>
         </ul>
         <ul class="social-list">
             <li>
-                <a href="<?= $instagram; ?>">
+                <a href="<?= get_theme_mod('instagram'); ?>">
                     <svg width="20" height="20">
                         <use xlink:href="#instagram-icon"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                <a href="<?= $viber; ?>">
+                <a href="viber://add?number=<?= get_theme_mod('viber'); ?>">
                     <svg width="20" height="20">
                         <use xlink:href="#viber-icon"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                <a href="<?= $telegram; ?>">
+                <a href="tg://resolve?domain=<?= get_theme_mod('telegram'); ?>">
                     <svg width="20" height="20">
                         <use xlink:href="#telegram-icon"></use>
                     </svg>

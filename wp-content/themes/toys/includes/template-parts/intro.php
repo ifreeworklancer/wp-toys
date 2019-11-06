@@ -8,27 +8,40 @@ $intro = get_field('intro_slider', $page_id);
         <div class="row align-items-start">
             <div class="col-lg-4 filters-wrapper order-2 order-lg-1">
                 <ul class="filters">
-<!--                    --><?php //foreach ($catalog['filter'] as $key => $val) : ?>
-<!--                        <li>-->
-<!--                            <div>--><?//= $key; ?><!--</div>-->
-<!--                            <ul>-->
-<!--                                --><?php //foreach ($val as $item) : ?>
-<!--                                    <li>-->
-<!--                                        <a href="#">-->
-<!--                                            --><?//= $item ?>
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                --><?php //endforeach; ?>
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                    --><?php //endforeach; ?>
+                    <?php
+                    $termsParent = get_terms([
+                        'taxonomy' => 'product_category',
+                        'parent' => 0,
+                    ]);
+                    foreach ($termsParent
+
+                             as $prterm) :
+                        ?>
+                        <li>
+                            <div><?= $prterm->name; ?></div>
+                            <ul>
+                                <?php $termsChild =  get_terms([
+                                    'taxonomy' => 'product_category',
+                                    'parent' => $prterm->term_id,
+                                ]);
+                                foreach ($termsChild as $chterms) :
+                                    ?>
+                                    <li class="<?= checkIfFilterExists($_GET, $chterms->term_id) ? 'is-checked' : '' ?>">
+                                        <a href="<?= makeFilterLink($_GET, $chterms->term_id) ?>">
+                                            <?= $chterms->name; ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    <? endforeach; ?>
                 </ul>
             </div>
             <div class="col-lg-8 pl-0 pl-lg-3 pr-0 order-1 order-lg-2">
                 <div class="intro-slider">
                     <?php foreach ($intro as $item) : ?>
                         <div class="intro-slider-item">
-                            <a href="<?= $item['intro_slider_item']['intro_slider_link']?>">
+                            <a href="<?= $item['intro_slider_item']['intro_slider_link'] ?>">
                                 <figure style="background-image: url('<?= $item['intro_slider_item']['intro_slider_image']['url']; ?>');"></figure>
                             </a>
                         </div>

@@ -12,21 +12,21 @@
             <div class="col-12 col-sm d-flex justify-content-center">
                 <ul class="social-list">
                     <li>
-                        <a href="<?= $instagram; ?>">
+                        <a href="<?= get_theme_mod('instagram'); ?>">
                             <svg width="20" height="20">
                                 <use xlink:href="#instagram-icon"></use>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= $viber; ?>">
+                        <a href="viber://add?number=<?= get_theme_mod('viber'); ?>">
                             <svg width="20" height="20">
                                 <use xlink:href="#viber-icon"></use>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= $telegram; ?>">
+                        <a href="tg://resolve?domain=<?= get_theme_mod('telegram'); ?>">
                             <svg width="20" height="20">
                                 <use xlink:href="#telegram-icon"></use>
                             </svg>
