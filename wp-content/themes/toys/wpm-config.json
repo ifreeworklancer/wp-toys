@@ -1,8 +1,8 @@
 {
-  "taxonomies": {
-    "product_category": {}
-  },
   "post_types": {
     "product": {}
+  },
+  "taxonomies": {
+    "product_category" : {}
   }
 }

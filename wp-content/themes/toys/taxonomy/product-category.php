@@ -33,7 +33,7 @@ function product_category() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
     );
-    register_taxonomy( 'x', array( 'product' ), $args );
+    register_taxonomy( 'product_category', array( 'product' ), $args );
 
 }
 add_action( 'init', 'product_category', 0 );
