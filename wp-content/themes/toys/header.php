@@ -12,6 +12,8 @@
 
 <?php require_once('includes/partials/svgs.php'); ?>
 
+<div id="app">
+
 <!-- App-header -->
 <header id="app-header">
     <div class="container-fluid">
@@ -25,15 +27,15 @@
                 <div class="d-flex align-items-center">
                     <nav class="nav d-none d-md-block">
                         <?php wp_nav_menu([
-                            'theme_location'  => 'main_menu',
-                            'menu'            => '',
-                            'container'       => '',
+                            'theme_location' => 'main_menu',
+                            'menu' => '',
+                            'container' => '',
                             'container_class' => '',
-                            'container_id'    => '',
-                            'menu_class'      => 'nav-list',
-                            'menu_id'         => '',
-                            'echo'            => true,
-                            'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                            'container_id' => '',
+                            'menu_class' => 'nav-list',
+                            'menu_id' => '',
+                            'echo' => true,
+                            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
                         ]); ?>
                     </nav>
                     <div class="favorites d-none d-md-block">
@@ -48,15 +50,7 @@
                         wpm_language_switcher('dropdown', 'name');
                     ?>
                     <a href="../../page/page-basket.php" class="basket">
-                        <div class="basket-counter">0</div>
-                        <div class="basket-icon">
-                            <svg width="20" height="20">
-                                <use xlink:href="#basket-icon"></use>
-                            </svg>
-                        </div>
-                        <div class="basket-value">
-                            <span class="font-weight-bold">0.00</span> грн
-                        </div>
+                        <basket-header></basket-header>
                     </a>
                     <div class="burger-menu">
                         <div class="line line--top"></div>
@@ -70,15 +64,15 @@
     <div class="menu">
         <nav class="menu-nav">
             <?php wp_nav_menu([
-                'theme_location'  => 'main_menu',
-                'menu'            => '',
-                'container'       => '',
+                'theme_location' => 'main_menu',
+                'menu' => '',
+                'container' => '',
                 'container_class' => '',
-                'container_id'    => '',
-                'menu_class'      => 'nav-list d-block mr-0',
-                'menu_id'         => '',
-                'echo'            => true,
-                'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                'container_id' => '',
+                'menu_class' => 'nav-list d-block mr-0',
+                'menu_id' => '',
+                'echo' => true,
+                'items_wrap' => '<ul class="%2$s">%3$s</ul>',
             ]); ?>
             <div class="d-flex align-items-center">
                 <div class="favorites">
@@ -97,8 +91,5 @@
     </div>
 </header>
 
-<!-- Modal -->
-<?php require_once('includes/partials/modal.php'); ?>
-
 <!-- Main -->
-<main id="app">
+<main>

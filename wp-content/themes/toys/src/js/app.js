@@ -9,12 +9,15 @@ window.jQuery = window.$ = jquery;
 import Vue from 'vue';
 import store from './store';
 import Products from './components/product/Products';
-
+import ModalFeedback from './components/modal/ModalFeedback';
+import BasketHeader from './components/basket/BasketHeader';
 
 new Vue({
     el: '#app',
     components: {
         Products,
+        ModalFeedback,
+        BasketHeader,
     },
     store,
     created() {

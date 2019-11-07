@@ -114,17 +114,27 @@ function generateRandomString($length = 10)
 //Vue
 function get_ajax_posts()
 {
-    $args = [
-        'posts_per_page' => 6,
-        'paged' => $_POST['paged'],
-    ];
-    if (isset($_POST)) {
-        if ($post_type = $_POST['post_type']) {
-            $args['post_type'] = $post_type;
-        }
-        if ($filters = $_POST['filters']) {
-            $args['tag_slug__in'] = explode(',', $filters);
-        }
+    if (!empty($_POST['filters'])) {
+        $args = [
+            'post_type' => 'product',
+            'posts_per_page' => 9,
+            'order' => 'date',
+            'paged' => $_POST['paged'],
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_category',
+                    'field' => 'id',
+                    'terms' => explode(',', $_POST['filters'])
+                )
+            ),
+        ];
+    } else {
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => 9,
+            'order' => 'date',
+            'paged' => $_POST['paged'],
+        );
     }
     $ajaxposts = new WP_Query($args);
     echo json_encode([
@@ -133,6 +143,7 @@ function get_ajax_posts()
     ]);
     exit;
 }
+
 // Fire AJAX action for both logged in and non-logged in users
 add_action('wp_ajax_get_ajax_posts', 'get_ajax_posts');
 add_action('wp_ajax_nopriv_get_ajax_posts', 'get_ajax_posts');
@@ -148,9 +159,10 @@ function format_posts($posts)
         array_push($computed, [
             'title' => $post->post_title,
             'image' => get_the_post_thumbnail_url($post->ID, 'large'),
-            'posted_at' => get_the_date('j.m.Y', $post->ID),
-            'description' => wp_trim_words($post->post_content, 30, '...'),
+            'old_price' => get_field('product_old_price', $post->ID),
+            'price' => get_field('product_price', $post->ID),
             'permalink' => get_the_permalink($post->ID),
+            'quantity' => 1
         ]);
     }
     return $computed;
@@ -165,6 +177,7 @@ function slugify($text)
     $text = str_replace([' ', ',', '.'], '-', $text);
     return $text;
 }
+
 /**
  * @param $query
  * @param $current
@@ -192,6 +205,7 @@ function makeFilterLink($query, $current)
     }
     return home_url($wp->request . $output);
 }
+
 /**
  * @param $query
  * @param $current
@@ -204,6 +218,7 @@ function checkIfFilterExists($query, $current)
     }
     return in_array($current, explode(',', $query['filter']));
 }
+
 /**
  * @param $image
  * @return array
@@ -215,6 +230,7 @@ function getImageTags($image)
     $tags = array_map('strtolower', $tags);
     return $tags;
 }
+
 if (!function_exists('get_video_embed')) {
     function get_video_embed($url)
     {
@@ -229,7 +245,8 @@ if (!function_exists('get_video_embed')) {
     }
 }
 
-function url() {
+function url()
+{
     return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 }
 
@@ -243,10 +260,12 @@ function get_video_id($url)
         $url, $matches);
     return $matches[1];
 }
+
 function getVideoImageLinkAttribute($url)
 {
     return 'https://img.youtube.com/vi/' . get_video_id($url) . '/maxresdefault.jpg';
 }
+
 function getVideoLinkAttribute($url)
 {
     return 'https://www.youtube.com/embed/' . get_video_id($url);
