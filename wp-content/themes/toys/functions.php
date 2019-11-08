@@ -157,6 +157,7 @@ function format_posts($posts)
     $computed = [];
     foreach ($posts as $post) {
         array_push($computed, [
+            'id' => $post->ID,
             'title' => $post->post_title,
             'image' => get_the_post_thumbnail_url($post->ID, 'large'),
             'old_price' => get_field('product_old_price', $post->ID),

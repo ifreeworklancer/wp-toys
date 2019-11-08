@@ -14,8 +14,11 @@ export default new Vuex.Store({
 
     mutations: {
         setBasket(state, items) {
-            state.basket.items.push(items);
-            console.log(state.basket.items);
+            items.forEach(item => {
+                state.basket.items.push(item);
+            });
+
+            localStorage.setItem('products_basket1',  JSON.stringify(state.basket.items));
 
             state.basket.amount = state.basket.items.reduce((t, i) => {
                 return t + (i.price * i.quantity);
@@ -29,8 +32,12 @@ export default new Vuex.Store({
 
     actions: {
         async getBasket({commit}) {
-            // await axios.get('/basket').then(({data}) => commit('setBasket', data));
-            commit('setBasket', JSON.parse(localStorage.getItem('products')));
+            commit('setBasket', JSON.parse(localStorage.getItem('products_basket')));
+        },
+
+        async setBasketItem({commit}, item) {
+            // localStorage.setItem('products', JSON.stringify([...item]));
+            // commit('setBasket', JSON.parse(localStorage.getItem('products')));
         },
 
         async updateBasketItem({commit, state}, item) {

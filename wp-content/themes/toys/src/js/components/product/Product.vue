@@ -42,7 +42,7 @@
             </div>
             <div class="catalog-card-badges">
                 <div class="catalog-card-badges-item catalog-card-badges-item--sale" v-if="post.old_price">
-                    Акция
+                    Sale
                 </div>
             </div>
         </a>
@@ -65,8 +65,7 @@
                 this.$store.commit('showModal');
             },
             addBasket() {
-                localStorage.setItem('products', JSON.stringify(this.post));
-                this.$store.commit('setBasket', this.post);
+                this.$store.commit('setBasket', [this.post]);
             }
         },
     }
