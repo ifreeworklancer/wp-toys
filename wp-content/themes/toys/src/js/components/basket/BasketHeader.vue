@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="basket-counter">{{basket.items.length}}</div>
+        <div class="basket-counter">{{basket.quantity}}</div>
         <div class="basket-icon">
             <svg width="20" height="20">
                 <use xlink:href="#basket-icon"></use>

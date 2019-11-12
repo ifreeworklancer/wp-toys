@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         basket: {
             items: [],
-            amount: 0
+            amount: 0,
+            quantity: 0
         },
         favorite: {
             items: [],
@@ -27,6 +28,27 @@ export default new Vuex.Store({
                 return t + (i.price * i.quantity);
             }, 0);
 
+            state.basket.quantity = state.basket.items.reduce((t, i) => {
+                return t + i.quantity;
+            }, 0);
+
+        },
+        setBasketQuantity(state, item) {
+            state.basket.items.forEach((element, index) => {
+                if (element.id === item.id) {
+                    state.basket.items[index] = item;
+                }
+            });
+
+            state.basket.amount = state.basket.items.reduce((t, i) => {
+                return t + (i.price * i.quantity);
+            }, 0);
+
+            state.basket.quantity = state.basket.items.reduce((t, i) => {
+                return t + i.quantity;
+            }, 0);
+
+            localStorage.setItem('products_basket', JSON.stringify(state.basket.items));
         },
         setFavorite(state, items) {
             items.forEach(item => {

@@ -11,44 +11,7 @@
                     </div>
                 </div>
                 <div class="basket-wrapper-body">
-                    <div class="basket-item" v-if="posts.length" v-for="post in posts" :key="post.id">
-                        <div class="basket-item-cell flex-column flex-md-row">
-                            <div class="basket-item-view">
-                                <figure :style="{ backgroundImage: `url('${post.image}')` }"></figure>
-                            </div>
-                            <div class="basket-item-description">
-                                <h6 class="title">
-                                    {{post.title}}
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="basket-item-cell">
-                            <div class="quantity">
-                                <form class="quantity-form">
-                                    <label class="quantity-label">
-                                        <input type="number" class="quantity-input form-control"
-                                               name="basket_quantity" min="1" :value="post.quantity">
-                                        <div class="quantity-button quantity-down">-</div>
-                                        <div class="quantity-button quantity-up">+</div>
-                                    </label>
-                                </form>
-                            </div>
-                            <div class="price">
-                                <div class="price-value">
-                                            <span class="font-weight-bold">
-                                                 {{post.price}}
-                                            </span>
-                                    грн
-                                </div>
-                            </div>
-                        </div>
-                        <div class="delete-basket-item">
-                            <div class="delete-icon">
-                                <div class="line line--left"></div>
-                                <div class="line line--right"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <basket-item v-if="posts.length" v-for="post in posts" :item="post" :key="post.id"/>
                 </div>
                 <div class="basket-wrapper-footer">
                     <div class="basket-wrapper-footer-description">
@@ -67,11 +30,15 @@
 </template>
 
 <script>
+    import BasketItem from './BasketItem';
     export default {
         data() {
             return {
                 posts: [],
             }
+        },
+        components: {
+            BasketItem
         },
         computed: {
             basket() {

@@ -331,27 +331,27 @@ new Vue({
     });
 })(jQuery);
 
-document.addEventListener('DOMContentLoaded', function () {
-    let inputs = document.getElementsByClassName('quantity');
-
-    function incInputNumber(input, step) {
-        let val = +input.value;
-        if (isNaN(val)) val = 1;
-        val += step;
-        input.value = val > 1 ? val : 1
-        // If you need to change the input value in the DOM :
-        // var newValue = val > 0 ? val : 0;
-        // input.setAttribute("value", newValue);
-    }
-
-    Array.prototype.forEach.call(inputs, function (el) {
-        let input = el.getElementsByTagName('input')[0];
-
-        el.getElementsByClassName('quantity-up')[0].addEventListener('click', function () {
-            incInputNumber(input, 1)
-        });
-        el.getElementsByClassName('quantity-down')[0].addEventListener('click', function () {
-            incInputNumber(input, -1)
-        })
-    })
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     let inputs = document.getElementsByClassName('quantity');
+//
+//     function incInputNumber(input, step) {
+//         let val = +input.value;
+//         if (isNaN(val)) val = 1;
+//         val += step;
+//         input.value = val > 1 ? val : 1
+//         // If you need to change the input value in the DOM :
+//         // var newValue = val > 0 ? val : 0;
+//         // input.setAttribute("value", newValue);
+//     }
+//
+//     Array.prototype.forEach.call(inputs, function (el) {
+//         let input = el.getElementsByTagName('input')[0];
+//
+//         el.getElementsByClassName('quantity-up')[0].addEventListener('click', function () {
+//             incInputNumber(input, 1)
+//         });
+//         el.getElementsByClassName('quantity-down')[0].addEventListener('click', function () {
+//             incInputNumber(input, -1)
+//         })
+//     })
+// });
