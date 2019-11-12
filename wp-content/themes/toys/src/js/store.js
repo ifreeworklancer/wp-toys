@@ -9,6 +9,9 @@ export default new Vuex.Store({
             items: [],
             amount: 0
         },
+        favorite: {
+            items: [],
+        },
         activeModal: false,
     },
 
@@ -18,12 +21,25 @@ export default new Vuex.Store({
                 state.basket.items.push(item);
             });
 
-            localStorage.setItem('products_basket1',  JSON.stringify(state.basket.items));
+            localStorage.setItem('products_basket', JSON.stringify(state.basket.items));
 
             state.basket.amount = state.basket.items.reduce((t, i) => {
                 return t + (i.price * i.quantity);
             }, 0);
 
+        },
+        setFavorite(state, items) {
+            items.forEach(item => {
+                state.favorite.items.push(item);
+            });
+            localStorage.setItem('products_favorite', JSON.stringify(state.favorite.items));
+        },
+        removeFavorite(state, item) {
+            localStorage.removeItem('products_favorite');
+            state.favorite.items = state.favorite.items.filter(i => {
+                return i.id !== item.id;
+            });
+            localStorage.setItem('products_favorite', JSON.stringify(state.favorite.items));
         },
         showModal(state) {
             state.activeModal = !state.activeModal;
@@ -35,9 +51,8 @@ export default new Vuex.Store({
             commit('setBasket', JSON.parse(localStorage.getItem('products_basket')));
         },
 
-        async setBasketItem({commit}, item) {
-            // localStorage.setItem('products', JSON.stringify([...item]));
-            // commit('setBasket', JSON.parse(localStorage.getItem('products')));
+        async getFavorite({commit}) {
+            commit('setFavorite', JSON.parse(localStorage.getItem('products_favorite')));
         },
 
         async updateBasketItem({commit, state}, item) {
@@ -48,6 +63,10 @@ export default new Vuex.Store({
         async deleteBasketItem({commit, state}, item) {
             // await axios.delete(`/basket/${item.id}`, item).then(({data}) => commit('setBasket', data));
             await console.log('deleteBasketItem')
+        },
+
+        async deleteFavoriteItem({commit, state}, item) {
+            commit('removeFavorite', item);
         },
     }
 })

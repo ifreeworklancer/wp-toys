@@ -39,7 +39,7 @@
                         ]); ?>
                     </nav>
                     <div class="favorites d-none d-md-block">
-                        <a href="../../page/page-favorites.php">
+                        <a href="<?= get_permalink(67);?>">
                             <svg width="20" height="20">
                                 <use xlink:href="#favorite-icon"></use>
                             </svg>
@@ -49,7 +49,7 @@
                     if (function_exists('wpm_language_switcher'))
                         wpm_language_switcher('dropdown', 'name');
                     ?>
-                    <a href="../../page/page-basket.php" class="basket">
+                    <a href="<?= get_permalink(80);?>" class="basket">
                         <basket-header></basket-header>
                     </a>
                     <div class="burger-menu">
@@ -76,7 +76,7 @@
             ]); ?>
             <div class="d-flex align-items-center">
                 <div class="favorites">
-                    <a href="../../page/page-favorites.php">
+                    <a href="<?= get_permalink(67);?>">
                         <svg width="20" height="20">
                             <use xlink:href="#favorite-icon"></use>
                         </svg>

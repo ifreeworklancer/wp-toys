@@ -33,7 +33,7 @@
                             <use xlink:href="#feedback-icon"></use>
                         </svg>
                     </div>
-                    <div class="add-favorite">
+                    <div class="add-favorite" :class="{'is-favorite': checkFavorite}" @click.prevent="addFavorite">
                         <svg width="15" height="15">
                             <use xlink:href="#favorite-icon"></use>
                         </svg>
@@ -51,9 +51,13 @@
 
 <script>
     export default {
+        data() {
+            return {
+                checkFavorite: false,
+            }
+        },
         props: {
             post: Object,
-            count: Number
         },
         computed: {
             image() {
@@ -66,7 +70,22 @@
             },
             addBasket() {
                 this.$store.commit('setBasket', [this.post]);
+            },
+            addFavorite() {
+                this.checkFavorite ? this.$store.dispatch('deleteFavoriteItem', this.post) : this.$store.commit('setFavorite', [this.post]);
+                this.checkFavorite = !this.checkFavorite;
             }
         },
+        mounted() {
+            if (JSON.parse(localStorage.getItem('products_favorite'))) {
+                JSON.parse(localStorage.getItem('products_favorite')).forEach(item => {
+                    if (item.id === this.post.id) {
+                        this.checkFavorite = true;
+                        return this.checkFavorite;
+                    }
+                });
+            }
+        }
     }
+
 </script>

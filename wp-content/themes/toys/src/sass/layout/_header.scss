@@ -50,6 +50,11 @@
     position: relative;
     width: auto;
     margin-right: 25px;
+    display: none;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: block;
+    }
 
     li {
       display: flex;

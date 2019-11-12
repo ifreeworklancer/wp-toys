@@ -166,33 +166,67 @@
         }
       }
 
+      .add-basket,
+      .add-feedback,
       .add-favorite {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .5s;
+        opacity: .8;
 
         svg {
-          fill: $light;
-          transition: .5s;
+          fill: #fff;
         }
 
         &:hover {
-
-          svg {
-            fill: $primary;
-          }
+          opacity: 1;
         }
+
+      }
+
+      .add-basket {
+        background: $secondary;
+        margin-right: 15px;
       }
 
       .add-feedback {
+        background: $primary;
+        margin-right: 15px;
+      }
 
-        svg {
-          fill: $light;
+      .add-favorite {
+        background: $light;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background: $light;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-20deg);
+          opacity: 0;
           transition: .5s;
         }
 
-        &:hover {
 
-          svg {
-            fill: $secondary;
+        &.is-favorite {
+
+          &::before {
+            width: 100%;
+            opacity: 1;
           }
+        }
+
+        svg {
+          fill: $danger;
         }
       }
     }

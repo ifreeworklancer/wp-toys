@@ -42,6 +42,7 @@
             },
         },
         mounted() {
+            this.$store.dispatch('getFavorite');
             this.getPosts();
         }
     }
