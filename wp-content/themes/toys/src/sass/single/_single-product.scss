@@ -193,6 +193,28 @@
       .add-basket {
         background: $secondary;
         margin-right: 15px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background: $secondary;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-20deg);
+          opacity: 0;
+          transition: .5s;
+        }
+
+
+        &.is-basket {
+
+          &::before {
+            width: 100%;
+            opacity: 1;
+          }
+        }
       }
 
       .add-feedback {

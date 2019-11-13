@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center">
-        <div class="add-basket" @click.prevent="addBasket">
+        <div class="add-basket" :class="{'is-basket': checkBasket}" @click.prevent="addBasket">
             <svg width="18" height="18">
                 <use xlink:href="#basket-icon"></use>
             </svg>
@@ -23,6 +23,7 @@
         data() {
             return {
                 checkFavorite: false,
+                checkBasket: false,
             }
         },
         props: {
@@ -33,7 +34,8 @@
                 this.$store.commit('showModal');
             },
             addBasket() {
-                this.$store.commit('setBasket', this.post);
+                this.checkBasket ? this.$store.dispatch('deleteBasketItem', this.post[0]) : this.$store.commit('setBasket', this.post);
+                this.checkBasket = !this.checkBasket;
             },
             addFavorite() {
                 this.checkFavorite ? this.$store.dispatch('deleteFavoriteItem', this.post[0]) : this.$store.commit('setFavorite', this.post);
@@ -47,6 +49,14 @@
                     if (item.id === this.post[0].id) {
                         this.checkFavorite = true;
                         return this.checkFavorite;
+                    }
+                });
+            }
+            if (JSON.parse(localStorage.getItem('products_basket'))) {
+                JSON.parse(localStorage.getItem('products_basket')).forEach(item => {
+                    if (item.id === this.post[0].id) {
+                        this.checkBasket = true;
+                        return this.checkBasket;
                     }
                 });
             }

@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="delete-basket-item">
+        <div class="delete-basket-item" @click.prevent="$emit('remove-basket', item)">
             <div class="delete-icon">
                 <div class="line line--left"></div>
                 <div class="line line--right"></div>

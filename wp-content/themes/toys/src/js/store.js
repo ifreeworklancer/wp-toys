@@ -50,6 +50,27 @@ export default new Vuex.Store({
 
             localStorage.setItem('products_basket', JSON.stringify(state.basket.items));
         },
+        removeBasket(state, item) {
+            localStorage.removeItem('products_basket');
+            state.basket.items = state.basket.items.filter(i => {
+                return i.id !== item.id;
+            });
+            localStorage.setItem('products_basket', JSON.stringify(state.basket.items));
+
+            state.basket.amount = state.basket.items.reduce((t, i) => {
+                return t + (i.price * i.quantity);
+            }, 0);
+
+            state.basket.quantity = state.basket.items.reduce((t, i) => {
+                return t + i.quantity;
+            }, 0);
+        },
+        removeAllBasket(state) {
+            localStorage.removeItem('products_basket');
+            state.basket.items = [];
+            state.basket.amount = 0;
+            state.basket.quantity = 0;
+        },
         setFavorite(state, items) {
             items.forEach(item => {
                 state.favorite.items.push(item);
@@ -82,9 +103,12 @@ export default new Vuex.Store({
             await console.log('updateBasketItem')
         },
 
+        async deleteBasketAll({commit, state}) {
+            commit('removeAllBasket');
+        },
+
         async deleteBasketItem({commit, state}, item) {
-            // await axios.delete(`/basket/${item.id}`, item).then(({data}) => commit('setBasket', data));
-            await console.log('deleteBasketItem')
+            commit('removeBasket', item);
         },
 
         async deleteFavoriteItem({commit, state}, item) {

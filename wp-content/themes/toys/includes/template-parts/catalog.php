@@ -13,6 +13,6 @@
         ?>
         <products category="product"
                   filters="<?= implode(',', $currentFilters) ?>"
-                  button-text="<?= __('[:ru]показать еще[:ua]показати ще[:]'); ?>"></products>
+                  button-text="<?= __('[:ru]показать еще[:uk]показати ще[:]'); ?>"></products>
     </div>
 </section>
