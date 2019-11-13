@@ -1,8 +1,4 @@
 <?php
-/*
-Template Name: Спасибо
-Template Post Type: page
-*/
 get_header('secondary');
 ?>
 
@@ -13,10 +9,10 @@ get_header('secondary');
                 <div class="col">
                     <div class="page-secondary-item">
                         <h1 class="title">
-                            <?= __('[:ru]Спасибо![:uk]Дякуємо![:]'); ?>
+                            <?= __('[:ru]Ууууупс![:uk]Ууууупс![:]'); ?>
                         </h1>
                         <div class="page-subtitle">
-                            <?= __('[:ru]наш менеджер с вами свяжеться[:uk]наш менеджер з вами зв\'яжется[:]'); ?>
+                            <?= __('[:ru]такой страницы не существует[:uk]такої сторінки не існує[:]'); ?>
                         </div>
                         <a href="/" class="btn btn-primary">
                             <?= __('[:ru]На главную[:uk]На головну[:]'); ?>

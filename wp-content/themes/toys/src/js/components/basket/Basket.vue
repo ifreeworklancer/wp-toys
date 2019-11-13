@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" v-if="posts.length">
             <div class="basket-wrapper">
                 <div class="basket-wrapper-header">
                     <div class="reset-basket" @click="deleteAll">
@@ -11,13 +11,10 @@
                     </div>
                 </div>
                 <div class="basket-wrapper-body">
-                    <basket-item v-if="posts.length" v-for="post in posts" :item="post" :key="post.id"
+                    <basket-item v-for="post in posts" :item="post" :key="post.id"
                                  v-on:remove-basket="removeBasket(post)"/>
-                    <div v-if="!posts.length">
-                        Net
-                    </div>
                 </div>
-                <div class="basket-wrapper-footer">
+                <div class="basket-wrapper-footer" v-if="posts.length">
                     <div class="basket-wrapper-footer-description">
                         <div class="basket-result">
                             <span class="basket-result-text">{{totalText}}</span>
@@ -26,11 +23,21 @@
                             </span>
                             грн
                         </div>
-                        <a :href="checkoutLink" class="btn btn-primary" :class="{'disabled' : !posts.length}">
+                        <a :href="checkoutLink" class="btn btn-primary">
                             {{checkoutText}}
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12" v-if="!posts.length">
+            <div class="no-products text-center">
+                <h2 class="no-products-title text-light mb-4">
+                    {{noResultText}}
+                </h2>
+                <a href="/" class="btn btn-primary">
+                    {{noResultButtonText}}
+                </a>
             </div>
         </div>
     </div>
@@ -45,6 +52,8 @@
             checkoutText: String,
             checkoutLink: String,
             totalText: String,
+            noResultText: String,
+            noResultButtonText: String,
         },
         data() {
             return {

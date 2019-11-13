@@ -1,7 +1,17 @@
 <template>
     <div class="row">
-        <product-favorite class="col-md-6 col-lg-4 catalog-card-wrapper" v-if="posts.length" v-for="post in posts"
+        <product-favorite v-if="posts.length" v-for="post in posts"
                           :post="post" :key="post.id" v-on:remove-favorite="removeFavorite(post)"/>
+        <div class="col-12" v-if="!posts.length">
+            <div class="no-products text-center">
+                <h2 class="no-products-title text-light mb-4">
+                    {{noResultText}}
+                </h2>
+                <a href="/" class="btn btn-primary">
+                    {{buttonText}}
+                </a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -9,6 +19,10 @@
     import ProductFavorite from './ProductFavorite';
 
     export default {
+        props: {
+            noResultText: String,
+            buttonText: String,
+        },
         data() {
             return {
                 posts: [],

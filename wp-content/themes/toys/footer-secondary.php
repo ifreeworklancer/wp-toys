@@ -1,4 +1,7 @@
+<!-- Modal -->
+<?php require_once('includes/partials/modal.php'); ?>
 </main>
+</div>
 
 
 <!-- Script -->
