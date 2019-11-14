@@ -39,7 +39,6 @@
                 this.$store.commit('setBasket', [post]);
             },
             removeFavorite(post) {
-                console.log(post);
                 this.$store.dispatch('deleteFavoriteItem', post);
                 this.getPosts();
             },

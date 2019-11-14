@@ -14,6 +14,7 @@ import ProductsFavorite from './components/product-favorite/ProductsFavorite';
 import ModalFeedback from './components/modal/ModalFeedback';
 import Basket from './components/basket/Basket';
 import BasketHeader from './components/basket/BasketHeader';
+import CheckoutList from './components/checkout-catalog/CheckoutList';
 
 new Vue({
     el: '#app',
@@ -24,6 +25,7 @@ new Vue({
         ModalFeedback,
         Basket,
         BasketHeader,
+        CheckoutList,
     },
     store,
     created() {
@@ -103,6 +105,16 @@ new Vue({
             $(this).parents('.form-group').removeClass('in-focus');
         }
     });
+
+    if($('input[name*="product"]')) {
+        let products = [];
+        JSON.parse(localStorage.getItem('products_basket')).forEach(item => {
+            products.push(item.title, ` Кол-во: ${item.quantity}`);
+        });
+        if(products.length) {
+            $('input[name*="product"]').val(JSON.stringify(products));
+        }
+    }
 
     /**
      * Phone mask

@@ -16,7 +16,7 @@ get_header();
                     </h1>
                 </div>
             </div>
-            <basket checkout-link="<?= get_the_permalink(84); ?>"
+            <basket checkout-link="<?= get_the_permalink(90); ?>"
                     reset-text="<?= __('[:ru]Очистить корзину[:uk]Очистити кошик[:]'); ?>"
                     checkout-text="<?= __('[:ru]Оформить заказ[:uk]Оформити замовлення[:]'); ?>"
                     total-text="<?= __('[:ru]Итог:[:uk]Підсумок:[:]'); ?>"
