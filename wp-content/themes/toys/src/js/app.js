@@ -108,11 +108,15 @@ new Vue({
 
     if($('input[name*="product"]')) {
         let products = [];
-        JSON.parse(localStorage.getItem('products_basket')).forEach(item => {
-            products.push(item.title, ` Кол-во: ${item.quantity}`);
-        });
+        if(!!JSON.parse(localStorage.getItem('products_basket'))){
+            JSON.parse(localStorage.getItem('products_basket')).forEach(item => {
+                products.push(`Название: ${item.title}, кол-во: ${item.quantity}шт; \n`);
+            });
+        }
         if(products.length) {
-            $('input[name*="product"]').val(JSON.stringify(products));
+            $('input[name*="product"]').val(products.join(''));
+        } else {
+            $('#btn-form-checkout').addClass('disabled');
         }
     }
 

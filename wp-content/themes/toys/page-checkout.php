@@ -33,21 +33,21 @@ get_header();
                                 <label for="user-name" class="label-placeholder">
                                     <?= __('[:ru]Ваше имя[:uk]Ваше ім\'я[:]'); ?>
                                 </label>
-                                <input type="text" name="name" id="user-name" class="form-control">
+                                <input type="text" name="name" id="user-name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="user-phone" class="label-placeholder">
                                     <?= __('[:ru]Телефон[:uk]Телефон[:]'); ?>
                                 </label>
-                                <input type="tel" name="phone" id="user-phone" class="form-control">
+                                <input type="tel" name="phone" id="user-phone" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="user-email" class="label-placeholder">
                                     Email
                                 </label>
-                                <input type="email" name="email" id="user-email" class="form-control">
+                                <input type="email" name="email" id="user-email" class="form-control" required>
                             </div>
-                            <input type="hidden" name="product">
+                            <input type="hidden" name="product" required>
                         </div>
                         <div class="form-column">
                             <div class="title mb-3">
@@ -71,7 +71,7 @@ get_header();
                                     <?= __('[:ru]Оплата Visa/Mastercard[:uk]Оплата Visa / Mastercard[:]'); ?>
                                 </label>
                             </div>
-                            <button class="btn btn-primary mt-4">
+                            <button class="btn btn-primary mt-4" id="btn-form-checkout">
                                 <?= __('[:ru]Купить[:uk]Купити[:]'); ?>
                             </button>
                         </div>

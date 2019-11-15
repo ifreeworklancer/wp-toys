@@ -91,7 +91,9 @@ export default new Vuex.Store({
 
     actions: {
         async getBasket({commit}) {
-            commit('setBasket', JSON.parse(localStorage.getItem('products_basket')));
+            if(!!JSON.parse(localStorage.getItem('products_basket'))) {
+                commit('setBasket', JSON.parse(localStorage.getItem('products_basket')));
+            }
         },
 
         async getFavorite({commit}) {

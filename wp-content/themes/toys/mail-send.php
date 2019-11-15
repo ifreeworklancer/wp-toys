@@ -5,7 +5,7 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email']) &&
     $email = $_POST['email'];
     $product = $_POST['product'];
     $to = 'toys.com.ua@gmail.com';
-    $subject = 'Форма заявки с сайтй Toys';
+    $subject = 'Форма заявки с сайта Toys';
     $payment = $_POST['payment'];
     $message = "
     <html>
