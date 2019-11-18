@@ -25,7 +25,7 @@
     &.active {
 
       a {
-        color: $secondary;
+        color: $primary;
       }
     }
   }
@@ -48,7 +48,7 @@
       &:hover {
 
         svg {
-          fill: $primary;
+          fill: $secondary;
         }
       }
     }
@@ -77,10 +77,10 @@
       }
 
       &:hover {
-        color: $secondary;
+        color: $primary;
 
         svg {
-          fill: $secondary;
+          fill: $primary;
         }
       }
     }
@@ -178,7 +178,7 @@
           transition: .5s;
 
           &:hover {
-            color: $primary;
+            color: $secondary;
           }
         }
       }

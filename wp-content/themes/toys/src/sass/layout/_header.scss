@@ -97,7 +97,7 @@
     a {
 
       svg {
-        fill: $light;
+        fill: $danger;
         transition: .5s;
       }
 
@@ -114,14 +114,14 @@
     position: relative;
     z-index: 110;
     display: block;
-    background: $secondary;
+    background: $primary;
     padding: 10px 20px;
     border-radius: 3px;
 
     &-counter {
       text-align: right;
       font-size: .75rem;
-      color: #fff;
+      color: $light;
     }
 
     &-icon {
@@ -130,7 +130,7 @@
       margin-bottom: 5px;
 
       svg {
-        fill: $primary;
+        fill: #fff;
       }
     }
 

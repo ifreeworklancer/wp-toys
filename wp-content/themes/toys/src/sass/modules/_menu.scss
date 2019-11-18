@@ -16,7 +16,7 @@
   .line {
     width: 30px;
     height: 3px;
-    background: $primary;
+    background: $secondary;
     opacity: .8;
     transition: .5s;
   }
@@ -54,7 +54,7 @@
   @extend %pos;
   position: fixed;
   display: none;
-  background: rgba($secondary, .9);
+  background: rgba($primary, .9);
   z-index: 100;
 
   &-nav {

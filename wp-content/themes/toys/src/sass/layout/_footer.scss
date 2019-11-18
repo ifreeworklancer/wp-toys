@@ -1,6 +1,6 @@
 #app-footer {
   padding: 15px 0;
-  background: $secondary;
+  background: $primary;
 
   @media (min-width: map_get($grid-breakpoints, md)) {
     padding: 15px 30px;
