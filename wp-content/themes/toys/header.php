@@ -20,7 +20,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-auto">
                     <a href="/" class="logo">
-                        Logo
+                        <img src="<?= get_theme_file_uri('images/logo/logo.png')?>" alt="logo">
                     </a>
                 </div>
                 <div class="col-auto">

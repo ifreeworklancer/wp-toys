@@ -108,7 +108,7 @@
 }
 
 .filters {
-  background: #fff;
+  background: rgba($primary, .4);
   padding: 40px 30px;
   border-radius: 3px;
   box-shadow: 0 15px 60px -25px rgba(50, 51, 55, .25);
@@ -144,11 +144,11 @@
       }
 
       &:hover {
-        color: $light;
+        color: #fff;
 
         &::before {
           transform: translateY(-50%) rotate(-20deg);
-          background: $light;
+          background: #fff;
         }
       }
     }
@@ -156,11 +156,11 @@
     &.active {
 
       div {
-        color: $light;
+        color: #fff;
 
         &::before {
           transform: translateY(-50%) rotate(20deg);
-          background: $light;
+          background: #fff;
         }
       }
     }
@@ -178,7 +178,7 @@
           transition: .5s;
 
           &:hover {
-            color: $secondary;
+            color: #fff;
           }
         }
       }

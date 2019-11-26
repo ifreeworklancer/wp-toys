@@ -4,7 +4,7 @@
   left: auto;
   padding: 0 15px;
   width: 100%;
-  background: rgba($body-bg, .4);
+  background: rgba($primary, .8);
   border-bottom: 1px solid rgba(#fff, .6);
   transition: .5s;
   z-index: 100;
@@ -14,7 +14,7 @@
   }
 
   &.is-scroll {
-    background: rgba($body-bg, 1);
+    background: rgba($primary, 1);
   }
 
   &.app-header-secondary {
@@ -28,10 +28,14 @@
   .logo {
     position: relative;
     z-index: 110;
-    color: $dark;
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: $headings-font-family;
+
+    img {
+      max-width: 120px;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        max-width: 200px;
+      }
+    }
   }
 
   .nav {
@@ -42,6 +46,10 @@
 
       li {
         margin-right: 25px;
+        
+        a {
+          color: #fff;
+        }
       }
     }
   }
@@ -61,32 +69,32 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      width: 45px;
-      height: 45px;
-      background: #fff;
+      width: 35px;
+      height: 35px;
+      //background: #fff;
 
       span {
-        color: $body-color;
+        color: #fff;
         font-size: 1.125rem;
         font-weight: bold;
         text-transform: uppercase;
         transition: .5s;
 
         &:hover {
-          color: $primary;
+          color: $body-color;
         }
       }
 
       ul {
 
         a {
-          color: $body-color;
+          color: #fff;
           font-size: 1.125rem;
         }
       }
 
       &.item-language-main > span > span {
-        color: $primary;
+        color: #fff;
       }
     }
   }
